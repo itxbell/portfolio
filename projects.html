@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/portfolio.css" />
+    <script src="scripts/portfolio.js" defer></script>
+    <title>Christina Bercasio | Projects</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html" class="logo">CB</a>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="full-page-section-layout" id="section-projects">
+      <section class="gallery-container" aria-labelledby="gallery-title">
+        <div class="gallery-heading reveal">
+          <p class="kicker">World building / Environment art</p>
+          <h1 class="exp-page-title" id="gallery-title">The Kingdom of Rites</h1>
+          <p class="gallery-intro">A stylized level-design world shaped through composition, navigation, atmosphere, and visual storytelling.</p>
+        </div>
+
+        <!-- One project card unifies the four environment views into a single world. -->
+        <div class="project-gallery">
+          <button class="kingdom-card gallery-card animate-on-scroll stagger-1" type="button" data-gallery-image="images/IMG_3440.jpeg" data-gallery-title="The Kingdom of Rites" data-gallery-description="A unified fantasy environment study showing how landmarks, paths, settlements, natural boundaries, and atmospheric details work together as one playable world.">
+            <span class="kingdom-image kingdom-image-one"><img src="images/IMG_3436.jpeg" alt="Rock formation with a glowing red portal in a grassy environment" /></span>
+            <span class="kingdom-image kingdom-image-two"><img src="images/IMG_3437.jpeg" alt="Fantasy village with windmills, towers, and a river" /></span>
+            <span class="kingdom-image kingdom-image-three"><img src="images/IMG_3438.jpeg" alt="Bright fantasy church surrounded by trees and a graveyard" /></span>
+            <span class="kingdom-image kingdom-image-four"><img src="images/IMG_3440.jpeg" alt="Wide aerial view of a fantasy valley and village" /></span>
+            <span class="gallery-card-label">01 / The Kingdom of Rites · Level Design</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- The modal keeps the gallery immersive while providing project context on demand. -->
+    <div class="gallery-modal" id="gallery-modal" hidden>
+      <div class="gallery-modal-backdrop" data-gallery-close></div>
+      <article class="gallery-modal-card" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
+        <button class="gallery-modal-close" type="button" aria-label="Close project view" data-gallery-close>&times;</button>
+        <div class="gallery-carousel">
+          <button class="gallery-carousel-control gallery-carousel-prev" type="button" aria-label="Previous image" data-gallery-prev>&larr;</button>
+          <img id="gallery-modal-image" src="" alt="" />
+          <button class="gallery-carousel-control gallery-carousel-next" type="button" aria-label="Next image" data-gallery-next>&rarr;</button>
+          <div class="gallery-carousel-counter" id="gallery-carousel-counter">1 / 4</div>
+        </div>
+        <div class="gallery-modal-copy">
+          <p class="kicker">Level design study</p>
+          <h2 id="gallery-modal-title"></h2>
+          <p id="gallery-modal-description"></p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
