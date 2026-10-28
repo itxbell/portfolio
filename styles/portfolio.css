@@ -24,11 +24,11 @@ a { color: inherit; }
 img { display: block; max-width: 100%; }
 
 /* Floating navigation sits at the bottom center so the artwork stays unobstructed. */
-.bottom-nav { position: fixed; bottom: clamp(16px, 3vw, 28px); left: 50%; z-index: 40; display: flex; align-items: center; gap: 4px; padding: 6px; background: rgba(23, 25, 22, .94); border: 1px solid rgba(255, 253, 248, .12); border-radius: 999px; box-shadow: 0 16px 48px rgba(23, 25, 22, .28); backdrop-filter: blur(18px); transform: translateX(-50%); }
-.bottom-nav a { padding: 11px 18px; border-radius: 999px; color: rgba(255, 253, 248, .72); text-decoration: none; font: 500 .64rem var(--mono); letter-spacing: .08em; text-transform: uppercase; transition: background .22s ease, color .22s ease; }
-.bottom-nav a:hover { color: var(--white); background: rgba(255, 253, 248, .08); }
+.bottom-nav { position: fixed; bottom: clamp(18px, 3vw, 30px); left: 50%; z-index: 40; display: flex; align-items: center; gap: 6px; padding: 8px; background: #ffffff; border: 1px solid rgba(23, 25, 22, .1); border-radius: 999px; box-shadow: 0 16px 40px rgba(23, 25, 22, .16); backdrop-filter: blur(18px); transform: translateX(-50%); }
+.bottom-nav a { padding: 15px 27px; border-radius: 999px; color: var(--muted); text-decoration: none; font: 500 .8rem var(--mono); letter-spacing: .08em; text-transform: uppercase; transition: background .22s ease, color .22s ease; }
+.bottom-nav a:hover { color: var(--ink); background: var(--paper-deep); }
 .bottom-nav a.is-active, .bottom-nav a.is-active:hover { background: var(--blush); color: var(--ink); }
-.bottom-nav a:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
+.bottom-nav a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* Shared page spacing leaves room for the fixed nav and keeps sections readable. */
 .full-page-section-layout { min-height: 100vh; width: 100%; padding: clamp(56px, 7vw, 104px) clamp(22px, 7vw, 112px) 140px; position: relative; }
@@ -192,7 +192,7 @@ img { display: block; max-width: 100%; }
   .project-image { height: 230px; }
   .exp-page-item, .project-item { padding: 22px; }
   .bottom-nav { right: 14px; bottom: 14px; left: 14px; justify-content: space-between; transform: none; }
-  .bottom-nav a { flex: 1; padding: 11px 6px; text-align: center; font-size: .58rem; letter-spacing: .06em; }
+  .bottom-nav a { flex: 1; padding: 13px 7px; text-align: center; font-size: .66rem; letter-spacing: .06em; }
 }
 
 /* Mobile entrance motion keeps the hero feeling intentional without changing desktop layout. */
