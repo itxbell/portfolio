@@ -9,22 +9,6 @@
   </head>
 
   <body>
-    <!-- Site-wide navigation. -->
-    <nav>
-      <a href="index.html" class="logo">CB</a>
-      <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="menu-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
     <div id="section-hero" class="full-page-section-layout">
       <div class="main-content-layout">
         <div class="hero-portrait" aria-label="Portrait placeholder">
@@ -32,37 +16,17 @@
         </div>
         <div class="hero-copy fade-in-up">
           <h1>Christina<br /><span>Bercasio</span></h1>
-          <div class="hero-meta">
-            <a href="projects.html" class="social-link">Explore selected work</a>
-            <a href="contact.html" class="social-link">Start a conversation</a>
-          </div>
         </div>
-        <a class="hero-index" href="#home-explore">SCROLL TO EXPLORE ↓</a>
+        </div>
       </div>
     </div>
 
-    <!-- The scroll destination previews the rest of the portfolio as the visitor explores. -->
-    <section class="home-explore" id="home-explore" aria-labelledby="home-explore-title">
-      <div class="home-explore-heading reveal">
-        <p class="kicker">Continue exploring</p>
-        <h2 id="home-explore-title">A world in progress.</h2>
-        <p>Move through the work, process, and tools behind each environment.</p>
-      </div>
-
-      <div class="home-page-grid">
-        <a class="home-page-card home-page-card-large animate-on-scroll stagger-1" href="projects.html">
-          <img src="images/IMG_3437.jpeg" alt="Fantasy village level design" />
-          <span class="home-page-card-copy"><small>01 / Gallery</small><strong>Projects</strong><em>See the worlds</em></span>
-        </a>
-        <a class="home-page-card animate-on-scroll stagger-2" href="about.html">
-          <img src="images/IMG_3438.jpeg" alt="Fantasy church environment" />
-          <span class="home-page-card-copy"><small>02 / Profile</small><strong>About</strong><em>Meet Christina</em></span>
-        </a>
-        <a class="home-page-card home-page-card-wide animate-on-scroll stagger-4" href="contact.html">
-          <img src="images/IMG_3440.jpeg" alt="Aerial fantasy valley" />
-          <span class="home-page-card-copy"><small>04 / Contact</small><strong>Start a conversation</strong><em>Let’s build something</em></span>
-        </a>
-      </div>
-    </section>
+    <!-- Floating site navigation keeps every page one tap away. -->
+    <nav class="bottom-nav" aria-label="Primary navigation">
+      <a href="index.html" class="is-active" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </body>
 </html>

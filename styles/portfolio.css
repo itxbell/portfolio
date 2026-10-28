@@ -9,6 +9,7 @@
   --paper-deep: #e7e1d3;
   --line: rgba(23, 25, 22, 0.16);
   --lime: #c8ee70;
+  --blush: #f5c2d8;
   --ember: #ff714b;
   --white: #fffdf8;
   --display: 'Space Grotesk', sans-serif;
@@ -22,18 +23,15 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 a { color: inherit; }
 img { display: block; max-width: 100%; }
 
-/* The fixed navigation keeps the portfolio identity available on every page. */
-nav { height: 78px; padding: 0 clamp(22px, 5vw, 76px); position: fixed; inset: 0 0 auto; z-index: 20; display: flex; align-items: center; justify-content: space-between; background: rgba(243, 240, 232, .88); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
-nav .logo { color: var(--ink); font: 700 1.25rem var(--display); letter-spacing: -.08em; text-decoration: none; }
-nav .logo::after { content: ' /  LEVEL DESIGN + VFX'; margin-left: 12px; color: var(--muted); font: 500 .62rem var(--mono); letter-spacing: .08em; }
-nav ul { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 36px); margin: 0; padding: 0; list-style: none; }
-nav ul a { position: relative; color: var(--ink); text-decoration: none; font: 600 .68rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-nav ul a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; background: var(--ember); transition: right .25s ease; }
-nav ul a:hover::after { right: 0; }
-#menu-toggle, .menu-icon { display: none; }
+/* Floating navigation sits at the bottom center so the artwork stays unobstructed. */
+.bottom-nav { position: fixed; bottom: clamp(16px, 3vw, 28px); left: 50%; z-index: 40; display: flex; align-items: center; gap: 4px; padding: 6px; background: rgba(23, 25, 22, .94); border: 1px solid rgba(255, 253, 248, .12); border-radius: 999px; box-shadow: 0 16px 48px rgba(23, 25, 22, .28); backdrop-filter: blur(18px); transform: translateX(-50%); }
+.bottom-nav a { padding: 11px 18px; border-radius: 999px; color: rgba(255, 253, 248, .72); text-decoration: none; font: 500 .64rem var(--mono); letter-spacing: .08em; text-transform: uppercase; transition: background .22s ease, color .22s ease; }
+.bottom-nav a:hover { color: var(--white); background: rgba(255, 253, 248, .08); }
+.bottom-nav a.is-active, .bottom-nav a.is-active:hover { background: var(--blush); color: var(--ink); }
+.bottom-nav a:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
 
 /* Shared page spacing leaves room for the fixed nav and keeps sections readable. */
-.full-page-section-layout { min-height: 100vh; width: 100%; padding: 128px clamp(22px, 7vw, 112px) 80px; position: relative; }
+.full-page-section-layout { min-height: 100vh; width: 100%; padding: clamp(56px, 7vw, 104px) clamp(22px, 7vw, 112px) 140px; position: relative; }
 .main-content-layout { width: min(1180px, 100%); margin: 0 auto; display: flex; align-items: center; gap: clamp(32px, 7vw, 110px); }
 
 /* The hero image and dark overlay keep the headline legible without hiding the artwork. */
@@ -44,15 +42,12 @@ nav ul a:hover::after { right: 0; }
 .hero-copy h1 { margin: 18px 0 22px; color: var(--white); font: 700 clamp(3.8rem, 10vw, 9.5rem)/.86 var(--display); letter-spacing: -.09em; text-shadow: 0 3px 18px rgba(48, 32, 71, .22); }
 .hero-copy h1 span { color: var(--white); }
 .hero-copy p { max-width: 520px; margin: 0; color: rgba(255,253,248,.82); font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.65; }
-.hero-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
-.social-link, .button-link { display: inline-flex; align-items: center; gap: 10px; padding: 13px 17px; border: 1px solid rgba(48, 32, 71, .34); color: #302047; text-decoration: none; font: 500 .68rem var(--mono); letter-spacing: .06em; text-transform: uppercase; background: #f4eee5; box-shadow: 0 6px 16px rgba(48, 32, 71, .12); transition: .25s ease; }
-.social-link:hover, .button-link:hover { border-color: #302047; color: #302047; transform: translateY(-3px); background: #fffaf1; box-shadow: 0 9px 20px rgba(48, 32, 71, .18); }
 .hero-index { margin-left: auto; padding-bottom: 8px; color: #302047; font: 500 .68rem var(--mono); writing-mode: vertical-rl; letter-spacing: .1em; text-decoration: none; transition: color .25s ease, transform .25s ease; }
 .hero-index:hover { color: var(--white); transform: translateY(4px); }
 .hero-portrait { flex: 0 1 clamp(280px, 34vw, 470px); aspect-ratio: 4 / 5; display: grid; place-items: center; border: 1px solid rgba(255, 253, 248, .7); background: var(--white); color: var(--muted); font: 500 .68rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 
 /* This section turns the homepage scroll into a visual index of the portfolio pages. */
-.home-explore { padding: clamp(80px, 12vw, 150px) clamp(22px, 7vw, 112px); background: var(--paper); }
+.home-explore { padding: clamp(80px, 12vw, 150px) clamp(22px, 7vw, 112px) 140px; background: var(--paper); }
 .home-explore-heading { width: min(1180px, 100%); margin: 0 auto 42px; }
 .home-explore-heading h2 { margin: 12px 0; color: var(--ink); font: 700 clamp(2.6rem, 6vw, 6rem)/.9 var(--display); letter-spacing: -.08em; }
 .home-explore-heading > p:last-child { max-width: 430px; margin: 0; color: var(--muted); line-height: 1.7; }
@@ -170,22 +165,7 @@ nav ul a:hover::after { right: 0; }
 
 /* On small screens the nav becomes a menu and dense grids become easier to scan. */
 @media (max-width: 760px) {
-  nav { height: 68px; }
-  nav .logo::after { content: ' / LEVEL DESIGN\A + VISUAL EFFECTS ARTIST'; display: inline-block; margin-left: 8px; color: var(--muted); font: 500 .48rem/1.35 var(--mono); letter-spacing: .04em; vertical-align: middle; white-space: pre; }
-  .menu-icon { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-  .menu-icon span { width: 25px; height: 2px; background: var(--ink); transition: transform .3s ease, opacity .2s ease; }
-  nav ul { position: absolute; top: 68px; left: 0; right: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 0; max-height: 0; padding: 0 22px; overflow: hidden; background: var(--paper); border-bottom: 1px solid transparent; opacity: 0; transform: translateY(-12px); transition: max-height .4s ease, padding .4s ease, opacity .3s ease, transform .4s ease, border-color .3s ease; }
-  nav ul li { width: 100%; padding: 10px 0; opacity: 0; transform: translateY(-8px); transition: opacity .25s ease, transform .25s ease; }
-  nav ul li:nth-child(1) { transition-delay: .04s; }
-  nav ul li:nth-child(2) { transition-delay: .08s; }
-  nav ul li:nth-child(3) { transition-delay: .12s; }
-  nav ul li:nth-child(4) { transition-delay: .16s; }
-  #menu-toggle:checked ~ .menu-icon span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  #menu-toggle:checked ~ .menu-icon span:nth-child(2) { opacity: 0; }
-  #menu-toggle:checked ~ .menu-icon span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  #menu-toggle:checked ~ ul { max-height: 360px; padding: 20px 22px 26px; border-color: var(--line); opacity: 1; transform: translateY(0); }
-  #menu-toggle:checked ~ ul li { opacity: 1; transform: translateY(0); }
-  .full-page-section-layout { padding: 106px 22px 54px; }
+  .full-page-section-layout { padding: 64px 22px 120px; }
   #section-hero { padding-bottom: 140px; background-position: 64% center; }
   #section-hero .main-content-layout { align-items: flex-start; }
   .main-content-layout { flex-direction: column; align-items: flex-start; }
@@ -211,6 +191,8 @@ nav ul a:hover::after { right: 0; }
   .project-image-container { margin: -22px -22px 24px; }
   .project-image { height: 230px; }
   .exp-page-item, .project-item { padding: 22px; }
+  .bottom-nav { right: 14px; bottom: 14px; left: 14px; justify-content: space-between; transform: none; }
+  .bottom-nav a { flex: 1; padding: 11px 6px; text-align: center; font-size: .58rem; letter-spacing: .06em; }
 }
 
 /* Mobile entrance motion keeps the hero feeling intentional without changing desktop layout. */
