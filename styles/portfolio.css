@@ -127,13 +127,18 @@ nav ul a:hover::after { right: 0; }
 .gallery-card-tall { grid-column: span 5; grid-row: span 2; }
 .gallery-card-standard { grid-column: span 7; }
 .gallery-card-label { position: absolute; right: 20px; bottom: 18px; left: 20px; z-index: 1; color: var(--white); font: 500 .72rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-.kingdom-card { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr 1fr; grid-template-rows: 220px 220px; gap: 5px; padding: 5px; }
-.kingdom-card::after { z-index: 2; pointer-events: none; }
-.kingdom-image { display: block; min-width: 0; min-height: 0; overflow: hidden; }
-.kingdom-image img { width: 100%; height: 100%; object-fit: cover; }
-.kingdom-image-one { grid-row: span 2; }
-.kingdom-image-four { grid-column: span 2; }
-.kingdom-card .gallery-card-label { bottom: 24px; }
+.kingdom-card { grid-column: 1 / -1; display: grid; grid-template-columns: .82fr 1.18fr; min-height: 430px; padding: 0; border: 1px solid rgba(23, 25, 22, .18); background: #e7e1d3; cursor: pointer; transition: transform .35s ease, box-shadow .35s ease; }
+.kingdom-card:hover { transform: translateY(-5px); box-shadow: 12px 14px 0 rgba(107, 49, 94, .16); }
+.kingdom-card::after { z-index: 2; pointer-events: none; background: linear-gradient(180deg, transparent 38%, rgba(23, 25, 22, .2)); }
+.kingdom-card::after { display: none; }
+.kingdom-feature-image { grid-column: 2; display: block; min-width: 0; overflow: hidden; }
+.kingdom-feature-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.kingdom-card:hover .kingdom-feature-image img { transform: scale(1.04); }
+.kingdom-card-info { position: static; grid-column: 1; grid-row: 1; display: flex; min-width: 0; flex-direction: column; align-items: flex-start; justify-content: center; gap: 14px; padding: clamp(26px, 5vw, 64px); background: #e7e1d3; color: #302047; text-align: left; transform: none; pointer-events: none; box-shadow: none; }
+.kingdom-card-info > span { color: #a34f68; font: 500 .62rem var(--mono); letter-spacing: .12em; }
+.kingdom-card-info strong { font: 700 clamp(2.2rem, 5vw, 5.2rem)/.86 var(--display); letter-spacing: -.08em; }
+.kingdom-card-info em { display: inline-flex; gap: 8px; align-items: center; color: var(--muted); font: 500 .64rem var(--mono); letter-spacing: .08em; text-transform: uppercase; font-style: normal; }
+.kingdom-card-info b { display: grid; width: 20px; height: 20px; place-items: center; border: 1px solid var(--line); font-size: .9rem; font-weight: 400; }
 .gallery-modal[hidden] { display: none; }
 .gallery-modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; }
 .gallery-modal-backdrop { position: absolute; inset: 0; background: rgba(15, 18, 14, .78); backdrop-filter: blur(8px); }
@@ -195,9 +200,10 @@ nav ul a:hover::after { right: 0; }
   .home-page-card-copy { right: 18px; bottom: 17px; left: 18px; }
   .about-tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
   .project-gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 170px; }
-  .kingdom-card { grid-template-columns: 1fr 1fr; grid-template-rows: 170px 170px 170px; }
-  .kingdom-image-one { grid-row: span 2; }
-  .kingdom-image-four { grid-column: span 2; }
+  .kingdom-card { grid-template-columns: 1fr; min-height: 0; }
+  .kingdom-card-info { grid-column: 1; grid-row: 1; min-height: 250px; padding: 28px 24px; }
+  .kingdom-feature-image { grid-column: 1; grid-row: 2; height: 250px; }
+  .kingdom-card-info strong { font-size: clamp(1.7rem, 9vw, 3rem); }
   .gallery-modal-card { grid-template-columns: 1fr; max-height: 90vh; }
   .gallery-carousel { min-height: 230px; }
   .gallery-carousel > img { min-height: 230px; max-height: 48vh; }
