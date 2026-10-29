@@ -4,53 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/portfolio.css" />
+    <link rel="stylesheet" href="styles/showcase.css" />
     <script src="scripts/portfolio.js" defer></script>
+    <script src="scripts/showcase.js" defer></script>
     <title>Christina Bercasio | Projects</title>
   </head>
 
   <body>
-    <main class="full-page-section-layout" id="section-projects">
-      <section class="gallery-container" aria-labelledby="gallery-title">
-        <div class="gallery-heading reveal">
-          <p class="kicker">World building / Environment art</p>
-          <h1 class="exp-page-title" id="gallery-title">The Kingdom of Rites</h1>
-          <p class="gallery-intro">A stylized level-design world shaped through composition, navigation, atmosphere, and visual storytelling.</p>
-        </div>
-
-        <!-- One project card unifies the four environment views into a single world. -->
-        <div class="project-gallery">
-          <button class="kingdom-card gallery-card animate-on-scroll stagger-1" type="button" data-gallery-image="images/IMG_3440.jpeg" data-gallery-title="The Kingdom of Rites" data-gallery-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae justo nec velit feugiat tincidunt. Curabitur non sem at libero posuere consequat.">
-            <span class="kingdom-card-info">
-              <span>01 / LEVEL DESIGN</span>
-              <strong>The Kingdom<br />of Rites</strong>
-              <em>Open gallery <b aria-hidden="true">+</b></em>
-            </span>
-            <span class="kingdom-feature-image">
-              <img src="images/IMG_3440.jpeg" alt="Wide aerial view of a fantasy valley and village" />
-            </span>
-          </button>
-        </div>
-      </section>
+    <main class="showcase" id="section-projects">
+      <div class="showcase-shell">
+        <header class="showcase-head">
+          <div class="showcase-heading">
+            <p class="showcase-kicker">World building / Environment art</p>
+            <h1 class="showcase-title">The Kingdom of Rites</h1>
+            <p class="showcase-intro">A medieval fantasy kingdom swallowed by a crimson eclipse. Level design, layout and VFX.</p>
+          </div>
+          <div class="showcase-controls" role="group" aria-label="Showcase view">
+            <button type="button" data-mode="story" aria-pressed="true">Story</button>
+            <button type="button" data-mode="mosaic" aria-pressed="false">Mosaic</button>
+            <button type="button" class="showcase-autoplay" aria-label="Pause autoplay">&#x23F8;</button>
+          </div>
+        </header>
+        <div class="showcase-progress" aria-hidden="true"><i></i></div>
+        <section class="showcase-story" aria-label="Project story">
+          <div class="showcase-story-page"></div>
+          <div class="showcase-story-nav">
+            <button type="button" class="showcase-arrow" data-story-step="-1" aria-label="Previous page">&#x2039;</button>
+            <div class="showcase-dots" aria-label="Story pages"></div>
+            <button type="button" class="showcase-arrow" data-story-step="1" aria-label="Next page">&#x203A;</button>
+          </div>
+        </section>
+        <section class="showcase-mosaic" aria-label="The Kingdom of Rites gallery" hidden></section>
+        <dialog class="showcase-lightbox" aria-label="The Kingdom of Rites gallery">
+          <div class="showcase-lightbox-inner"></div>
+        </dialog>
+      </div>
     </main>
-
-    <!-- The modal keeps the gallery immersive while providing project context on demand. -->
-    <div class="gallery-modal" id="gallery-modal" hidden>
-      <div class="gallery-modal-backdrop" data-gallery-close></div>
-      <article class="gallery-modal-card" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
-        <button class="gallery-modal-close" type="button" aria-label="Close project view" data-gallery-close>&times;</button>
-        <div class="gallery-carousel">
-          <button class="gallery-carousel-control gallery-carousel-prev" type="button" aria-label="Previous image" data-gallery-prev>&larr;</button>
-          <img id="gallery-modal-image" src="" alt="" />
-          <button class="gallery-carousel-control gallery-carousel-next" type="button" aria-label="Next image" data-gallery-next>&rarr;</button>
-          <div class="gallery-carousel-counter" id="gallery-carousel-counter">1 / 4</div>
-        </div>
-        <div class="gallery-modal-copy">
-          <p class="kicker">Level design study</p>
-          <h2 id="gallery-modal-title"></h2>
-          <p id="gallery-modal-description"></p>
-        </div>
-      </article>
-    </div>
 
     <nav class="bottom-nav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
