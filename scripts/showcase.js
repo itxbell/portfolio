@@ -42,6 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
       "Although this was my first time making a VFX from a material in Unreal Engine, I was able to get the hang of it quickly. Unlike Niagara systems, which take a lot of time and setup to get a specific effect or emitter working, making a VFX from a material in Unreal is more efficient.",
       "Since the Kingdom of Rite was engulfed by the Red Eclipse, I decided to give the portal two contrasting colors so it would be easy to recognize. Choosing crimson red as one of the main colors also communicates to the player that the portal is extremely dangerous, because the color connects it to the Red Eclipse.",
     ] },
+    { chapter: "Project reflection", title: "What I learned", textOnly: true, paragraphs: [
+      "Working on The Kingdom of Rites was a valuable learning experience that allowed me to develop my skills in level design, environment layout, and visual effects. As this project was completed in collaboration with an animation student, I also learned the importance of working together and ensuring that the environment supported both the visual presentation and the overall narrative of the game.",
+      "One of the biggest lessons I learned was the importance of planning before building the environment. Through research, greyboxing, and landscape sculpting, I was able to create a world that felt more believable and purposeful. Instead of placing assets purely for visual appeal, I considered how the layout of buildings, walls, waterways, and cliffsides could reflect the kingdom's history, economy, religion, and security. Testing the level throughout development also helped me identify scale issues and make adjustments to ensure that the environment was suitable for gameplay.",
+      "Another important learning experience was creating The Crimson's Maw, the portal VFX. Since this was my first time creating a material-based visual effect in Unreal Engine, I initially had to familiarise myself with the process. However, through experimentation, I learned how materials could be used to create striking visual effects without relying entirely on more complex particle systems. I also became more aware of how colour can communicate meaning. By combining contrasting colours with crimson red, I wanted the portal to stand out from the environment while reinforcing the danger and corruption associated with the Red Eclipse.",
+      "Looking back, I believe one of the strengths of this project was the way the environment and visual effects worked together to support the narrative. The peaceful kingdom and its transformation into a corrupted world gave me an opportunity to explore how level design, atmosphere, and visual storytelling could influence the player's perception of a space. However, the project also taught me that creating a believable environment requires continuous iteration. In future projects, I would like to dedicate more time to playtesting, refining environmental details, and improving the integration of visual effects with the surrounding world. I would also explore more advanced VFX techniques to create greater depth and movement in the portal.",
+      "Overall, The Kingdom of Rites strengthened my understanding of environmental storytelling and reinforced my interest in level design and VFX. More importantly, it taught me that a successful environment is not just about how it looks, but how every design decision contributes to the world, atmosphere, and experience I want the player to have.",
+    ] },
   ];
 
   const $ = (selector) => root.querySelector(selector);
@@ -114,9 +121,13 @@ document.addEventListener("DOMContentLoaded", () => {
     pageIndex = (index + story.length) % story.length;
     const page = story[pageIndex];
     storyPage.classList.toggle("is-dense", page.paragraphs.length > 4);
-    const media = document.createElement("div");
-    media.className = "showcase-story-media";
-    media.append(page.video ? mediaFor(items[1], undefined, true) : mediaFor({ image: page.image, title: page.title, caption: "Project image" }));
+    storyPage.classList.toggle("is-text-only", Boolean(page.textOnly));
+    let media = null;
+    if (!page.textOnly) {
+      media = document.createElement("div");
+      media.className = "showcase-story-media";
+      media.append(page.video ? mediaFor(items[1], undefined, true) : mediaFor({ image: page.image, title: page.title, caption: "Project image" }));
+    }
 
     const copy = document.createElement("div");
     copy.className = "showcase-story-copy";
@@ -130,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
       paragraph.textContent = text;
       copy.append(paragraph);
     });
-    storyPage.replaceChildren(media, copy);
+    storyPage.replaceChildren(...(media ? [media, copy] : [copy]));
     [...dots.children].forEach((dot, index) => dot.setAttribute("aria-current", String(index === pageIndex)));
     armAutoplay();
   }
