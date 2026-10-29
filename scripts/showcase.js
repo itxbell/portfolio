@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "I found out that the world during the medieval era mainly consists of two geographical features: navigable waterway systems and cliffsides. This information helped me shape the landscape and give it more stories.",
       "After sculpting the landscape and laying out the first foundation of the project, I moved on to painting it, using an asset pack from Fab (standard license). It made sculpting and painting the main landscape much easier.",
     ] },
-    { chapter: "Building the World", title: "Every asset has a place", image: items[3].src, paragraphs: [
+    { chapter: "Building the World", title: "Every asset has a place", textOnly: true, paragraphs: [
       "Once the landscape work was done, I spent most of my time placing assets. I made sure I was never putting a random asset in a random place. Since I was designing a level based on a medieval environment, I followed a specific and accurate layout.",
       "The connected walls and buildings show how the Kingdom of Rites could easily maintain security and peace across the whole kingdom, and the town will provide trade and economy. From having priests and nobles to building churches and churchyard, religion also revolves around the kingdom.",
       "Every time I placed a specific asset in the project, I made sure to test the game. This let me easily check whether the character’s size matched the asset.",
